@@ -11,17 +11,13 @@ app.get("/", (req, res, body) => {
 });
 app.get("/weather", async (req, res, body) => {
   const place = req.query.address;
-  //   console.log("ddd");
   if (!place) {
     return res.send({
       error: "Please provide a location",
     });
   }
   const data = await geocode(place);
-  //   console.log("lll");
-  //   console.log(latitude);
   if (data.error) {
-    // console.log(data.error);
     return res.send({ error: data.error });
   }
 

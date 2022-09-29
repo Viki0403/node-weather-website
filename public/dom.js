@@ -1,7 +1,6 @@
 const form = document.querySelector("form");
 const input = document.querySelector("input");
 const message1 = document.querySelector("#message-1");
-// const message2 = document.querySelector("#message-2");
 
 form.onsubmit = async (e) => {
   e.preventDefault();
@@ -15,7 +14,7 @@ form.onsubmit = async (e) => {
   }
 
   const res = await fetch(`http://localhost:3000/weather?address=${location}`);
-  //   console.log("ddd");
+
   console.log(res.ok);
 
   const data = await res.json();
@@ -30,10 +29,7 @@ form.onsubmit = async (e) => {
   console.log(data);
 
   console.log(data.temperature);
-  //const objData = JSON.stringify(data);
-  //console.log(objData);
-  //const { temperature, weather_description, feelslike } = objData;
-  //console.log(objData.temperature);
+
   const msg = `Its ${data.temperature} celsius and ${data.weather_description} possible now and feelslike ${data.feelslike} celsius `;
 
   message1.textContent = msg;

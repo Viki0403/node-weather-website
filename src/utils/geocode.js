@@ -17,7 +17,6 @@ const geocode = async (location) => {
 
     const data = await res.json();
 
-    console.log(data);
     if (data.features.length === 0) {
       return {
         error: "Please provide a valid location😅",
@@ -25,7 +24,6 @@ const geocode = async (location) => {
     }
     const longitude = data.features[0].center[0];
     const latitude = data.features[0].center[1];
-    console.log(latitude, longitude);
     return await forecast(latitude, longitude);
   } catch (error) {
     if (error.type === "system") {

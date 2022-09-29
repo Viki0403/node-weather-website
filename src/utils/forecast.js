@@ -15,17 +15,14 @@ const forecast = async (lat, lon) => {
       };
     }
 
-    console.log(data);
     const temperature = data.current.temperature;
     const weather_description = data.current.weather_descriptions[0];
     const feels = data.current.feelslike;
-    console.log(temperature, weather_description, feels);
     return {
       temperature,
       weather_description,
       feelslike: feels,
     };
-    //   console.log(data);
   } catch (error) {
     if (error.system) {
       return { error: "Check your connection⛔" };
